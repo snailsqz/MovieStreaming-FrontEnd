@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Movie</title>
+    <link rel="stylesheet" href="css/create.css" />
+  </head>
+  <body>
+    <header> 
+      <a href="/">Home</a>
+      <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
+      <a href="/create">Add Movie</a>
+      <a href="/movieupdate">Update Movie</a>
+      <a href="/moviedelete">Delete Movie</a>
+      <% }%>
+      <% if (moviedata.roles == "User" ){ %>
+      <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
+      <% }%>
+      <% if (!moviedata.userName) { %>
+      <a href="/register">Sign Up</a>
+      <a href="/login">Sign In</a>
+      <% } %>
+      <% if (moviedata.userName) { %>
+      <a href="/logout">Sign out</a>
+      <% } %>
+    </header>
+    <div class="mainbox">
+      <div>
+        <h1>Add Movie</h1>
+          <form method="post" action="/create" enctype="multipart/form-data">
+            <input type="text" name="title" placeholder="Title"/>
+            <br><br>
+            <input type="text" name="director" placeholder="Director"/>
+            <br><br>
+            <input type="file" name="imageFile" />
+            <br>
+            <input type="submit" value="Add Movie" class="btn"/>
+          </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --headerbg: #4f4666;
+  --bg: #2e2a38;
+  --bg2: #b9b4c7;
+  --txt: #faf0e6;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Fredoka", sans-serif;
+  font-style: normal;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+header {
+  height: 50px;
+  width: 100%;
+  font-size: x-large;
+  background-color: var(--headerbg);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--txt);
+  font-weight: 600;
+}
+
+.welcome {
+  color: var(--txt);
+  font-size: xx-large;
+  padding: 15px 0px 0px 20px;
+  font-weight: 500;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.imgitem {
+  width: 300px;
+}
+
+.imgitem a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-style: normal;
+  color: var(--txt);
+  font-weight: 700;
+  font-size: x-large;
+  font-family: "Raleway", sans-serif;
+}
+
+.mainbox {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1536px) {
+  .imgitem {
+    width: 287px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .imgitem {
+    width: 267px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .imgitem {
+    width: 234px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .imgitem {
+    width: 232px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  header a {
+    font-size: 15px;
+  }
+  .imgitem {
+    width: 180px;
+  }
+  .imgitem a {
+    font-size: 15px;
+  }
+}

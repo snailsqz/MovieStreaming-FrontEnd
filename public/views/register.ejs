@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/register.css">
+    <title>Register</title>
+    <style>
+        .password{
+           -webkit-text-security:disc;
+       }
+    </style>
+  </head>
+  <body>
+    
+    <div class="mainbox">
+      <div>
+        <h1>NetBoss</h1>
+        <p>Tonight, we gather to affirm the greatness of our nation - not because of the height of our skyscrapers, or the power of our military, or the size of our economy. </p>
+    </div>
+  <div>
+    <h1 class="login">Register</h1>
+    <% if (checkUserDupe) { %>
+      <p><%=checkUserDupe%></p>
+    <% } %>
+    
+    <form method="post" action="/register">
+      <br>
+      <input type="text" name="name" minlength="4"  maxlength="10" placeholder="Username"/>
+      <br><br>
+      <input class="password" type="text" name="password" minlength="6" placeholder="Password"/>
+      <input type="submit" value="Register" class="btn"/>
+    </form>
+    <p class="signin">Already have an account?⠀<a href="/login">Sign In!</a></p>
+  </div>
+</div>
+    <a href="/">Back to List</a>
+  </body>
+</html>

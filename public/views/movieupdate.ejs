@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NetBoss</title>
+    <link rel="stylesheet" href="css/movieupdate.css">
+    <style>
+      img{
+        border: 3px solid rgb(32, 167, 32);
+        box-shadow: 0 0 5px rgb(51, 192, 51);
+        border-radius: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header> 
+      <a href="/">Home</a>
+      <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
+      <a href="/create">Add Movie</a>
+      <a href="/movieupdate">Update Movie</a>
+      <a href="/moviedelete">Delete Movie</a>
+      <% }%>
+      <% if (moviedata.roles == "User" ){ %>
+      <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
+      <% }%>
+      <% if (!moviedata.userName) { %>
+      <a href="/register">Sign Up</a>
+      <a href="/login">Sign In</a>
+      <% } %>
+      <% if (moviedata.userName) { %>
+      <a href="/logout">Sign out</a>
+      <% } %>
+    </header>
+    <div class="mainbox">
+      <% for(var i = 0; i < movies.length; i++){%>
+        <div class="imgitem">
+          <a href="/update/<%=movies[i].movie_id%>"><img src="/images/<%= movies[i].imageFile %>"></a>
+          <a href="/update/<%=movies[i].movie_id%>"><p><%= movies[i].title %></p></a>
+        </div>
+      <%}%>
+    </div>
+  </body>
+</html>

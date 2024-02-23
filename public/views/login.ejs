@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <title>login</title>
+  </head>
+  <body>
+    <div class="mainbox">
+      <div>
+        <h1 class="login">Welcome</h1>
+        <% if (checkLogin) { %>
+          <p><%=checkLogin%></p>
+        <% } %>
+        <form method="post" action="/login">
+          <br>
+          <input type="text" name="name" placeholder="Username"/>
+          <br><br>
+          <input type="password" name="password" placeholder="Password" />
+          <input type="submit" value="Login" class="btn"/>
+        </form>
+        <p class="signup">Don't have an account?⠀<a href="/register">Sign Up!</a></p>
+      </div>
+      <div>
+        <h1>NetBoss</h1>
+        <p>Tonight, we gather to affirm the greatness of our nation - not because of the height of our skyscrapers, or the power of our military, or the size of our economy. </p>
+      </div>
+    </div>
+  </body>
+</html>

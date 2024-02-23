@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Movie</title>
+    <style>
+      body {
+        background-color: #136ec9;
+      }
+    </style>
+  </head>
+  <body>
+    <header> 
+      <a href="/">Home</a>
+      <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
+      <a href="/create">Add Movie</a>
+      <a href="/movieupdate">Update Movie</a>
+      <a href="/moviedelete">Delete Movie</a>
+      <% }%>
+      <% if (moviedata.roles == "User" ){ %>
+      <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
+      <% }%>
+      <% if (!moviedata.userName) { %>
+      <a href="/register">Sign Up</a>
+      <a href="/login">Sign In</a>
+      <% } %>
+      <% if (moviedata.userName) { %>
+      <a href="/logout">Sign out</a>
+      <% } %>
+    </header>
+    <h1>Update Movie</h1>
+    <form action="/update/<%=movies.movie_id%>" method="post">
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" value="<%= movies.title%>" />
+      <br />
+      <label for="author">Author:</label>
+      <input
+        type="text"
+        name="director"
+        id="director"
+        value="<%= movies.director%>"
+      />
+      <br />
+      <input type="submit" value="Update" />
+    </form>
+    <a href="/movies/<%= movies.movie_id%>">View</a>
+    <a href="/delete/<%= movies.movie_id%>">Delete</a>
+    <a href="/">Back to List</a>
+  </body>
+</html>
