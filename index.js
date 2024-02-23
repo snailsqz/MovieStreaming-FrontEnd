@@ -268,8 +268,3 @@ app.get("/logout", (req, res) => {
   app.locals.moviedata = "";
   res.redirect("/");
 });
-
-const port = 5500;
-app.listen(port, () => {
-  console.log(`Listening on port http://localhost:${port}...`);
-});
