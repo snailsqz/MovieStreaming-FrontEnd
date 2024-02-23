@@ -268,3 +268,7 @@ app.get("/logout", (req, res) => {
   app.locals.moviedata = "";
   res.redirect("/");
 });
+
+app.listen(5500, () => {
+  console.log("Server started on port 5500");
+});
