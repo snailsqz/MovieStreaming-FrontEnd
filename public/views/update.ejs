@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Update Movie</title>
-    <style>
-      body {
-        background-color: #136ec9;
-      }
-    </style>
+    <link rel="stylesheet" href="../css/create.css" />
   </head>
   <body>
     <header> 
@@ -26,26 +22,30 @@
       <a href="/login">Sign In</a>
       <% } %>
       <% if (moviedata.userName) { %>
-      <a href="/logout">Sign out</a>
+      <ul>
+        <li>
+        <img src="../images/noimage.jpg" alt="" class="profile">
+        <ul class="dropdown">
+          <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
+          <li><a href="/deleteuser/<%=moviedata.user_id%>"onclick="return confirm('You delete really')">Delete User</a></li>
+          <li><a href="/logout">Sign out</a></li>
+        </ul>
+        </li>
+      </ul>
       <% } %>
     </header>
     <h1>Update Movie</h1>
-    <form action="/update/<%=movies.movie_id%>" method="post">
+    <form method="post" action="/update/<%=movies.movie_id%>" enctype="multipart/form-data">
       <label for="title">Title:</label>
-      <input type="text" name="title" id="title" value="<%= movies.title%>" />
+      <input type="text" name="title"  value="<%= movies.title%>" />
       <br />
       <label for="author">Author:</label>
-      <input
-        type="text"
-        name="director"
-        id="director"
-        value="<%= movies.director%>"
-      />
-      <br />
+      <input type="text"name="director" value="<%= movies.director%>"/>
+      <br>
+      <input type="file" name="imageFile"/>
+      <p><%= movies.imageFile%></p>
       <input type="submit" value="Update" />
     </form>
-    <a href="/movies/<%= movies.movie_id%>">View</a>
-    <a href="/delete/<%= movies.movie_id%>">Delete</a>
     <a href="/">Back to List</a>
   </body>
 </html>

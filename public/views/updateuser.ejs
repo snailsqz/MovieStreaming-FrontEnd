@@ -1,17 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NetBoss</title>
-    <link rel="stylesheet" href="css/movieupdate.css">
-    <style>
-      img{
-        border: 3px solid rgb(32, 167, 32);
-        box-shadow: 0 0 5px rgb(51, 192, 51);
-        border-radius: 30px;
-      }
-    </style>
+    <title>Update Movie</title>
+    <link rel="stylesheet" href="../css/create.css" />
+  
   </head>
   <body>
     <header> 
@@ -31,7 +25,7 @@
       <% if (moviedata.userName) { %>
       <ul>
         <li>
-        <img src="images/noimage.jpg" alt="" class="profile">
+        <img src="../images/noimage.jpg" alt="" class="profile">
         <ul class="dropdown">
           <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
           <li><a href="/deleteuser/<%=moviedata.user_id%>"onclick="return confirm('You delete really')">Delete User</a></li>
@@ -41,13 +35,20 @@
       </ul>
       <% } %>
     </header>
-    <div class="mainbox">
-      <% for(var i = 0; i < movies.length; i++){%>
-        <div class="imgitem">
-          <a href="/update/<%=movies[i].movie_id%>"><img src="/images/<%= movies[i].imageFile %>"></a>
-          <a href="/update/<%=movies[i].movie_id%>"><p><%= movies[i].title %></p></a>
-        </div>
-      <%}%>
-    </div>
+    <h1>Update User</h1>
+    <form action="/user/<%=users.user_id%>" method="post">
+      <label for="title">Title:</label>
+      <input type="text" name="name" value="<%= users.name%>" />
+      <br />
+      <label for="author">Author:</label>
+      <input
+        type="text"
+        name="password"
+        value="<%= users.password%>"
+      />
+      <br />
+      <input type="submit" value="Update User" />
+    </form>
+    <a href="/">Back to List</a>
   </body>
 </html>

@@ -21,9 +21,8 @@ body {
 }
 
 header {
-  height: 50px;
+  height: 60px;
   width: 100%;
-  font-size: x-large;
   background-color: var(--headerbg);
   display: flex;
   align-items: center;
@@ -32,8 +31,16 @@ header {
 
 header a {
   text-decoration: none;
+  font-size: 24px;
+  font-weight: 400;
   color: var(--txt);
-  font-weight: 600;
+  padding: 2px 7px 4px 7px;
+  transition: all 0.4s;
+  border-radius: 10px;
+}
+
+header a:hover {
+  background-color: #302b3f;
 }
 
 .welcome {
@@ -73,6 +80,74 @@ img {
   flex-direction: row;
   gap: 15px;
   flex-wrap: wrap;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--bg2);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9894a3;
+}
+
+ul {
+  list-style: none;
+  background-color: var(--headerbg);
+  position: relative;
+  transform: translateX(100px);
+  z-index: 999;
+}
+
+ul li {
+  display: inline-block;
+  position: relative;
+}
+
+ul li a {
+  display: block;
+  padding: 10px;
+  color: var(--txt);
+  text-decoration: none;
+  text-align: center;
+  font-size: large;
+}
+
+ul li ul.dropdown li {
+  display: block;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+ul li ul.dropdown {
+  min-width: 100%;
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--headerbg);
+}
+
+ul li a:hover {
+  background-color: #302b3f;
+}
+
+ul li:hover ul.dropdown {
+  display: block;
+  border-radius: 10px;
+}
+
+.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--txt);
+  object-fit: cover;
+  margin: 3px 10px 0px 10px;
 }
 
 @media screen and (max-width: 1536px) {

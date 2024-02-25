@@ -23,7 +23,16 @@
     <a href="/login">Sign In</a>
     <% } %>
     <% if (moviedata.userName) { %>
-    <a href="/logout">Sign out</a>
+    <ul>
+      <li>
+      <img src="../images/noimage.jpg" alt="" class="profile">
+      <ul class="dropdown">
+        <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
+        <li><a href="/deleteuser/<%=moviedata.user_id%>"onclick="return confirm('You delete really')">Delete User</a></li>
+        <li><a href="/logout">Sign out</a></li>
+      </ul>
+      </li>
+    </ul>
     <% } %>
   </header>
   <div class="mainbox">
@@ -40,11 +49,11 @@
        </div>
     </div>
     <div class="box2">
-      <% if (checkFavorite) { %>
-        <h2 class="fade-in-right "><i class="fa-regular fa-circle-check"></i>⠀Already in Favorite</h2>
+      <% if (favoriteStatus == "Unfavorite this movie!") { %>
+        <h2 class="fade-in-right "><i class="fa-solid fa-xmark"></i>⠀<%=favoriteStatus%></h2>
       <% } %>
-      <% if (favoriteStatus != "") { %>
-        <h2 class="fade-in-right "><i class="fa-regular fa-circle-check"></i>⠀<%=favoriteStatus%></h2>
+      <% if (favoriteStatus == "Add to your favorite!") { %>
+        <h2 class="fade-in-right "><i class="fa-regular fa-heart"></i>⠀<%=favoriteStatus%></h2>
       <% } %>
       
       <h1><%=movie.title%></h1>
@@ -52,7 +61,14 @@
         <form method="post" action="/favorite">
           <input hidden type="text" name="movie_id" value="<%=movie.movie_id %>">
           <input hidden type="text" name="user_id" value="<%=moviedata.user_id %>">
-          <button type="submit" class="btn">Favorite</button>
+          <% if (favoriteStatus == "") { %>
+            <button type="submit" class="btn">Favorite</button>
+          <% } %>
+          <% if (favoriteStatus == "Unfavorite this movie!") { %>
+            <button type="submit" class="btn">Favorite</button>
+          <% } else if(favoriteStatus == "Add to your favorite!"){%>
+            <button type="submit" class="btn2">Unfavorite</button>
+          <% } %>
         </form>
     </div>
   </div>

@@ -24,7 +24,16 @@
       <a href="/login">Sign In</a>
       <% } %>
       <% if (moviedata.userName) { %>
-      <a href="/logout">Sign out</a>
+      <ul>
+        <li>
+        <img src="images/noimage.jpg" alt="" class="profile">
+        <ul class="dropdown">
+          <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
+          <li><a href="/deleteuser/<%=moviedata.user_id%>"onclick="return confirm('You delete really')">Delete User</a></li>
+          <li><a href="/logout">Sign out</a></li>
+        </ul>
+        </li>
+      </ul>
       <% } %>
     </header>
     <% if (moviedata.userName) { %>
