@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Update Movie</title>
-    <link rel="stylesheet" href="../css/create.css" />
-  
+    <link rel="stylesheet" href="../css/edituser.css" />
   </head>
   <body>
     <header> 
@@ -15,7 +14,7 @@
       <a href="/movieupdate">Update Movie</a>
       <a href="/moviedelete">Delete Movie</a>
       <% }%>
-      <% if (moviedata.roles == "User" ){ %>
+      <% if (moviedata.roles == "User"){ %>
       <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
       <% }%>
       <% if (!moviedata.userName) { %>
@@ -25,30 +24,28 @@
       <% if (moviedata.userName) { %>
       <ul>
         <li>
-        <img src="../images/noimage.jpg" alt="" class="profile">
+          <img src="../images/<%=moviedata.profilePicture%>" alt="" class="profile">
         <ul class="dropdown">
           <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
-          <li><a href="/deleteuser/<%=moviedata.user_id%>"onclick="return confirm('You delete really')">Delete User</a></li>
           <li><a href="/logout">Sign out</a></li>
         </ul>
         </li>
       </ul>
       <% } %>
     </header>
-    <h1>Update User</h1>
-    <form action="/user/<%=users.user_id%>" method="post">
-      <label for="title">Title:</label>
-      <input type="text" name="name" value="<%= users.name%>" />
-      <br />
-      <label for="author">Author:</label>
-      <input
-        type="text"
-        name="password"
-        value="<%= users.password%>"
-      />
-      <br />
-      <input type="submit" value="Update User" />
-    </form>
-    <a href="/">Back to List</a>
-  </body>
+    <div class="mainbox">
+      <h1>Update User</h1>
+      <form action="/user/<%=users.user_id%>" method="post" enctype="multipart/form-data">
+        <label for="">Username</label>
+        <input type="text" name="name" value="<%= users.name%>" />
+        <br><br>
+        <label for="">Password</label>
+        <input type="text" name="password" value="<%= users.password%>"/>
+        <br><br>
+        <input type="file" name="imageFile"/>
+        <a href="/deleteuser/<%=moviedata.user_id%>"onclick="return confirm('You delete really')">Delete User</a>
+        <input type="submit" value="Update User" class="btn"/>
+      </form>
+    </div>
+    </body>
 </html>

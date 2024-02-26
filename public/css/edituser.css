@@ -54,7 +54,7 @@ ul {
   z-index: 999;
 }
 
-ul li {
+li {
   display: inline-block;
   position: relative;
 }
@@ -133,12 +133,12 @@ input[type="text"] {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: var(--txt);
 }
 
 .mainbox h1 {
   font-weight: 600;
   font-size: 34px;
-  color: var(--txt);
   padding-bottom: 30px;
 }
 

@@ -50,7 +50,7 @@ img {
   width: 70%;
   height: 85%;
   object-fit: cover;
-  border-radius: 90px;
+  border-radius: 10px;
 }
 
 h2 {
@@ -171,7 +171,8 @@ h2 {
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 7px;
+  background-color: var(--headerbg);
 }
 
 ::-webkit-scrollbar-thumb {
