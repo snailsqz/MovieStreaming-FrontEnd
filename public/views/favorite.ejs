@@ -15,29 +15,36 @@
   </head>
   <body>
     <header> 
-      <a href="/">Home</a>
-      <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
-      <a href="/create">Add Movie</a>
-      <a href="/movieupdate">Update Movie</a>
-      <a href="/moviedelete">Delete Movie</a>
-      <% }%>
-      <% if (moviedata.roles == "User"){ %>
-      <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
-      <% }%>
-      <% if (!moviedata.userName) { %>
-      <a href="/register">Sign Up</a>
-      <a href="/login">Sign In</a>
-      <% } %>
+      <div class="headerbox1">
+        <img src="../images/Logo_JS_Pro.png" alt="">
+        <a href="/">Home</a>
+        <% if(moviedata.roles != "Admin" ){ %>
+          <a href="/typemovie">Movies</a>
+          <a href="/typeseries">Series</a>
+        <% }%>
+        <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
+          <a href="/movies">Movies</a>
+          <a href="/users">Users</a>
+          <% }%>
+        <% if (moviedata.roles == "User"){ %>
+        <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
+        <% }%>
+      </div>
+      <div class="headerbox2"> 
+        <% if (!moviedata.userName) { %>
+          <a class="signup" href="/login">Sign In</a>
+        <% } %>
       <% if (moviedata.userName) { %>
-      <ul>
-        <li>
+        <ul>
+          <li>
           <img src="../images/<%=moviedata.profilePicture%>" alt="" class="profile">
-        <ul class="dropdown">
-          <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
-          <li><a href="/logout">Sign out</a></li>
+          <ul class="dropdown">
+            <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
+            <li><a href="/logout">Sign out</a></li>
+          </ul>
+          </li>
         </ul>
-        </li>
-      </ul>
+      </div>
       <% } %>
     </header>
     <h1 class="welcome">Your Favorite List!</h1>

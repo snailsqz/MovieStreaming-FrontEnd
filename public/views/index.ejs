@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NetBoss</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+  <body>
+    <header> 
+      <div class="headerbox1">
+        <img src="../images/Logo_JS_B_shade_white.png" alt="">
+        <a href="/">Home</a>
+        <% if(moviedata.roles != "Admin" ){ %>
+          <a href="/typemovie">Movies</a>
+          <a href="/typeseries">Series</a>
+        <% }%>
+        <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
+          <a href="/movies">Movies</a>
+          <a href="/users">Users</a>
+        <% }%>
+        <% if (moviedata.roles == "User"){ %>
+          <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
+        <% }%>
+      </div>
+      <div class="headerbox2"> 
+        <% if (!moviedata.userName) { %>
+        <a class="signup" href="/login">Sign In</a>
+        <% } %>
+      <% if (moviedata.userName) { %>
+        <ul>
+          <li>
+          <img src="../images/<%=moviedata.profilePicture%>" alt="" class="profile">
+          <ul class="dropdown">
+            <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
+            <li><a href="/logout">Sign out</a></li>
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <% } %>
+    </header>
+    <% if (moviedata.userName) { %>
+      <h2 class="fade-in-right "><i class="fa-solid fa-hands-clapping"></i> Welcome, <%= moviedata.userName %> !</h2>
+    <% } else { %>
+      <h2 class="fade-in-right " style="width: 170px;"><i class="fa-solid fa-hands-clapping"></i> Welcome !</h2>
+    <% } %>
+    <div class="mainbox">
+      <div>
+        <% if (movies.length > 0) { %>
+        <a href="/movie/<%=movies[0].movie_id%>" class="moviedes">
+          <p><%= movies[0].title %></p>
+          <p><%= movies[0].desc%></p>
+        </a> 
+        <a href="/movie/<%=movies[0].movie_id%>"><img src="/images/<%= movies[0].imageFile %>" class="bigimg"></a>
+        <% } else {%>
+          <h1>Lets start add some movie</h1>
+        <% } %>
+      </div>
+
+      <% for(var i = 1; i < movies.length; i++){%>
+        <div class="imgitem">
+          <a href="/movie/<%=movies[i].movie_id%>"><img src="/images/<%= movies[i].imageFile %>"></a>
+          <a href="/movie/<%=movies[i].movie_id%>"><%= movies[i].title %></a>
+        </div>
+      <%}%>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+    <footer>
+      <p>NetBoss &copy; 2024 KMUTNB Project</p>
+      <p>Pawee Indulakshana IT</p>
+      <p>Jiramet Sakulkittavorn IT</p>
+      <p>Nuttawat Amorntanont IT</p>
+      <p>For Educational Purpose Only</p>
+      
+    </footer>
+  </body>
+</html>
+

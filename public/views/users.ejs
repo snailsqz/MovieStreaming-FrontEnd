@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NetBoss</title>
+    <link rel="stylesheet" href="../css/users.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+  <body>
+    <header> 
+      <div class="headerbox1">
+        <img src="../images/Logo_JS_Pro.png" alt="">
+        <a href="/">Home</a>
+        <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
+          <a href="/movies">Movies</a>
+          <% }%>
+        <% if (moviedata.roles == "User"){ %>
+        <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
+        <% }%>
+      </div>
+      <div class="headerbox2"> 
+        <% if (!moviedata.userName) { %>
+        <a class="signup" href="/login">Sign In</a>
+        <% } %>
+      <% if (moviedata.userName) { %>
+        <ul>
+          <li>
+          <img src="../images/<%=moviedata.profilePicture%>" alt="" class="profile">
+          <ul class="dropdown">
+            <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
+            <li><a href="/logout">Sign out</a></li>
+          </ul>
+          </li>
+        </ul>
+      </div>
+      <% } %>
+    </header>
+    <div class="mainbox">
+      <table>
+        <tr>
+          <th></th><th colspan="1" style="text-align:center;">ID</th><th style="text-align:center;">Name</th><th style="text-align:center;">Roles</th><th colspan="3" style="text-align: center;">Action</th>
+        </tr>
+      <% for(let i = 0; i < users.length; i++){%>
+          <tr>
+            <td style="width: 100px;"><img src="../images/<%=users[i].profilePicture%>" alt="" class="profile"></td>
+            <td style="text-align: center; "><%=users[i].user_id%></td>
+            <td style="width: 100px; text-align:center;"><%=users[i].name %></td>
+            <td style="width: 100px; text-align:center;"><%=users[i].roles %></td>
+            <% if (users[i].roles == "Admin") { %>
+              <td><a href="/admin/<%=users[i].user_id%>" class="promote" >Promote</a></td>
+            <% } else {%>
+            <td><a href="/admin/<%=users[i].user_id%>"  style="color:#6b6dee; width: 80px;">Promote</a></td>
+            <% }%>
+            <td style="text-align: center; width: 80px;"><a href="/user/<%=users[i].user_id%>" style="color:#3ff78b">Edit</a></td>
+            <td style="text-align: center; width: 80px;"> <a href="/deleteuser/<%=users[i].user_id%>"
+              onclick="return confirm('Do you confirm to delete this user?')" style="color:#f73f3f">Delete</a></td>
+          </tr>
+      <%}%>
+    </table>
+    </div>
+  </body>
+</html>
+

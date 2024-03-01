@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
   --headerbg: #4f4666;
   --bg: #2e2a38;
@@ -15,6 +16,7 @@
   box-sizing: border-box;
   font-family: "Fredoka", sans-serif;
   font-style: normal;
+  transition: all 0.3s;
 }
 
 body {
@@ -28,8 +30,32 @@ header {
   width: 100%;
   background-color: var(--headerbg);
   display: flex;
+}
+
+.headerbox1 {
+  width: 91%;
+  display: flex;
   align-items: center;
-  justify-content: space-around;
+}
+
+.headerbox1 img {
+  width: 100px;
+  padding-bottom: 10px;
+  height: 60px;
+  margin: 0px 10px 0px 20px;
+  object-fit: cover;
+}
+
+.headerbox1 a {
+  margin: 0px 0px 0px 20px;
+  font-weight: 700;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+.headerbox2 {
+  display: flex;
+  align-items: center;
+  width: 9%;
 }
 
 header a {
@@ -37,7 +63,7 @@ header a {
   font-size: 24px;
   font-weight: 400;
   color: var(--txt);
-  padding: 2px 7px 4px 7px;
+  padding: 4px 10px 6px 10px;
   transition: all 0.4s;
   border-radius: 10px;
 }
@@ -46,9 +72,13 @@ header a:hover {
   background-color: #302b3f;
 }
 
+iframe {
+  border-radius: 10px;
+}
+
 img {
-  width: 70%;
-  height: 85%;
+  width: 60%;
+  height: 90%;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -98,9 +128,12 @@ h2 {
 }
 
 .btn {
+  margin-top: 30px;
+  margin-left: 10px;
   display: inline-block;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
   border-radius: 15px;
   border: 2px solid #4caf50;
   transition: all 0.3s ease;
@@ -115,10 +148,13 @@ h2 {
 }
 
 .btn2 {
+  margin-top: 30px;
+  margin-left: 10px;
   display: inline-block;
   position: relative;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
   border-radius: 15px;
   border: 2px solid #4caf50;
   background-color: transparent;
@@ -139,35 +175,55 @@ h2 {
 }
 
 .box1 {
-  width: 60%;
+  width: 65%;
   height: 100%;
 }
 
 .box1 div:nth-of-type(1) {
   width: 100%;
-  height: 55%;
+  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+hr {
+  border: 1px solid var(--bg2);
+}
+
 .box1 div:nth-of-type(2) {
   width: 100%;
-  height: 45%;
+  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .box2 {
-  width: 40%;
+  width: 35%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   position: relative;
   color: var(--txt);
+  padding: 20px;
+}
+
+.box2 h1 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 3.5rem;
+  font-weight: 300;
+}
+
+.box2 p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.box2 p:not(:first-of-type) {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
 }
 
 ::-webkit-scrollbar {
@@ -188,7 +244,6 @@ ul {
   list-style: none;
   background-color: var(--headerbg);
   position: relative;
-  transform: translateX(100px);
   z-index: 999;
 }
 
@@ -237,6 +292,168 @@ ul li:hover ul.dropdown {
   border: 2px solid var(--txt);
   object-fit: cover;
   margin: 3px 10px 0px 10px;
+}
+
+.box3 {
+  width: 100%;
+  height: 100%;
+}
+
+.box3 .boxreview {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+textarea {
+  margin-top: 20px;
+  font-size: 20px;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  box-sizing: border-box;
+  resize: none;
+  vertical-align: top;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px;
+  height: 150px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  font-size: 16px;
+  vertical-align: top;
+  margin-left: -5px;
+}
+
+input[type="submit"]:hover {
+  background-color: #317233;
+}
+
+.box3 .boxread {
+  margin-top: 50px;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box3 .boxread .eachcom {
+  height: 90px;
+  width: 70%;
+  display: flex;
+  margin-bottom: 30px;
+  background-color: #b5c0d0;
+  padding: 5px;
+  position: relative;
+  border-radius: 40px;
+}
+
+.box3 .boxread .profcom {
+  height: 100%;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.box3 .boxread .profcom img {
+  border-radius: 50%;
+  width: 70px;
+}
+
+.box3 .boxread .comsect {
+  width: 92%;
+  height: 100%;
+}
+
+.box3 .boxread p a {
+  color: #c90a0a;
+  right: 2%;
+  top: 5%;
+  text-decoration: none;
+  position: absolute;
+}
+
+.usercomment {
+  font-size: 16px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+}
+
+label {
+  color: var(--txt);
+}
+
+input[type="number"] {
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid #d8d8d8;
+  position: relative;
+  text-align: center;
+  font-size: 20px;
+  width: 80px;
+  outline: none;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2050%2067%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20stroke-width%3D%222%22%3E%3Cline%20x1%3D%221%22%20x2%3D%2250%22%20y1%3D%2233.5%22%20y2%3D%2233.5%22%20stroke%3D%22%23D8D8D8%22%2F%3E%3Cpolyline%20transform%3D%22translate(25%2020)%20rotate(45)%20translate(-25%20-20)%22%20points%3D%2219%2026%2019%2014%2032%2014%22%20stroke%3D%22%23000%22%2F%3E%3Cpolyline%20transform%3D%22translate(25%2045)%20rotate(225)%20translate(-25%20-45)%22%20points%3D%2219%2052%2019%2039%2032%2039%22%20stroke%3D%22%23000%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-position: center right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  caret-color: transparent;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  opacity: 1 !important;
+  background: transparent !important;
+  border-width: 0px;
+  margin: 0;
+  border-left: 1px solid #d8d8d8;
+  height: 34px;
+  width: 23px;
+  cursor: pointer;
+}
+
+.box3 .boxread p a:hover {
+  text-decoration: 2px underline;
+  text-underline-offset: 3px;
+  transition: 0.5s ease-out;
+}
+
+.box3 h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--txt);
+  padding: 30px;
+}
+
+.box3 hr {
+  width: 100%;
+  margin: 70px 0;
+}
+
+.usersect {
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (max-width: 1536px) {

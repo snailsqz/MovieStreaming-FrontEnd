@@ -10,10 +10,10 @@
     <div class="mainbox">
       <div>
         <h1 class="login">Welcome</h1>
-        <% if (checkLogin) { %>
-          <p><%=checkLogin%></p>
-        <% } %>
         <form method="post" action="/login">
+          <% if (checkLogin) { %>
+            <p class="checklogin"><%=checkLogin%></p>
+          <% } %>
           <br>
           <input type="text" name="name" placeholder="Username"/>
           <br><br>

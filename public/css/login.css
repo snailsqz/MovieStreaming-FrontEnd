@@ -111,7 +111,7 @@ input[type="password"] {
 .signup a {
   font-size: 20px;
   text-decoration: none;
-  color: #ee4c4c;
+  color: #ee514c;
 }
 
 .signup a {
@@ -144,4 +144,13 @@ input[type="password"] {
   color: var(--txt);
   font-size: 18px;
   padding: 20px 30px 80px 30px;
+}
+
+.checklogin {
+  color: #5d6dfd;
+  position: absolute;
+}
+
+form {
+  position: relative;
 }

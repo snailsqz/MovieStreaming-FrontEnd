@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap");
 :root {
   --headerbg: #4f4666;
@@ -14,13 +15,12 @@
   box-sizing: border-box;
   font-family: "Fredoka", sans-serif;
   font-style: normal;
-  transition: all 0.4s;
+  transition: all 0.3s;
 }
 
 body {
   background-color: var(--bg);
-  height: 100vh;
-  width: 100%;
+  overflow-x: hidden;
 }
 
 header {
@@ -70,6 +70,13 @@ header a:hover {
   background-color: #302b3f;
 }
 
+.welcome {
+  color: var(--txt);
+  font-size: xx-large;
+  padding: 15px 0px 0px 20px;
+  font-weight: 500;
+}
+
 ul {
   list-style: none;
   background-color: var(--headerbg);
@@ -77,7 +84,7 @@ ul {
   z-index: 999;
 }
 
-li {
+ul li {
   display: inline-block;
   position: relative;
 }
@@ -126,84 +133,53 @@ ul li:hover ul.dropdown {
 
 .mainbox {
   width: 100%;
-  height: 93%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 20px;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+table {
+  border-collapse: collapse;
 }
 
-input[type="text"] {
-  font-size: large;
-  border-radius: 7px;
-  border: 0px;
-  height: 30px;
-  width: 260px;
+table td a {
+  text-decoration: none;
+}
+
+table td {
   padding: 10px;
-  color: var(--txt2);
-  background-color: rgb(245, 245, 245);
-}
-
-.mainbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   color: var(--txt);
 }
 
-.mainbox h1 {
-  font-weight: 600;
-  font-size: 34px;
-  padding-bottom: 30px;
+table td:nth-of-type(3) {
+  width: 80px;
 }
 
-input[type="file"] {
+table td:nth-of-type(4) {
+  width: 80px;
+}
+
+table th {
   color: var(--txt);
+  padding: 10px;
+  text-align: left;
 }
 
-input[type="file"]::file-selector-button {
-  border-radius: 4px;
-  padding: 0 16px;
-  height: 40px;
-  cursor: pointer;
-  background-color: var(--txt);
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
-  margin-left: 10%;
-  margin-right: 16px;
-  transition: background-color 200ms;
+table th,
+td {
+  border-bottom: 1.2px solid #543f8f;
 }
 
-input[type="file"]::file-selector-button:hover {
-  background-color: #d6d6d6;
+table td a:hover {
+  text-decoration: 2px underline;
+  text-underline-offset: 5px;
 }
 
-input[type="file"]::file-selector-button:active {
-  background-color: #a7a7a8;
-}
-
-.btn {
-  display: block;
-  margin: 20px auto 0;
-  padding: 0.5rem 1rem;
-  font-size: 18px;
-  border-radius: 15px;
-  border: 2px solid #4caf50;
-  background-color: transparent;
-  color: var(--txt);
-}
-
-.btn:hover {
-  color: var(--txt2);
-  background-color: #4caf50;
+.promote {
+  color: #df6bee;
+  text-decoration: 2px line-through;
 }
 
 ::-webkit-scrollbar {

@@ -8,40 +8,60 @@
   </head>
   <body>
     <header> 
-      <a href="/">Home</a>
-      <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
-      <a href="/create">Add Movie</a>
-      <a href="/movieupdate">Update Movie</a>
-      <a href="/moviedelete">Delete Movie</a>
-      <% }%>
-      <% if (moviedata.roles == "User"){ %>
-      <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
-      <% }%>
-      <% if (!moviedata.userName) { %>
-      <a href="/register">Sign Up</a>
-      <a href="/login">Sign In</a>
-      <% } %>
+      <div class="headerbox1">
+        <img src="../images/Logo_JS_Pro.png" alt="">
+        <a href="/">Home</a>
+        <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
+          <a href="/movies">Movies</a>
+          <a href="/users">Users</a>
+          <% }%>
+        <% if (moviedata.roles == "User"){ %>
+        <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
+        <% }%>
+      </div>
+      <div class="headerbox2"> 
+        <% if (!moviedata.userName) { %>
+        <a class="signup" href="/login">Sign In</a>
+        <% } %>
       <% if (moviedata.userName) { %>
-      <ul>
-        <li>
+        <ul>
+          <li>
           <img src="../images/<%=moviedata.profilePicture%>" alt="" class="profile">
-        <ul class="dropdown">
-          <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
-          <li><a href="/logout">Sign out</a></li>
+          <ul class="dropdown">
+            <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
+            <li><a href="/logout">Sign out</a></li>
+          </ul>
+          </li>
         </ul>
-        </li>
-      </ul>
+      </div>
       <% } %>
     </header>
     <h1>Update Movie</h1>
     <form method="post" action="/update/<%=movies.movie_id%>" enctype="multipart/form-data">
-      <label for="title">Title:</label>
       <input type="text" name="title"  value="<%= movies.title%>" />
-      <br />
-      <label for="author">Author:</label>
+      <br><br>
       <input type="text"name="director" value="<%= movies.director%>"/>
-      <br>
-      <input type="file" name="imageFile"/>
+      <br><br>
+      <label for="">Type:</label>
+        <select name="type" value="<%= movies.type%>">
+          <option name="type" value="Movie">Movie</option>
+          <option name="type" value="Series">Series</option>
+        </select>
+      <br><br>
+      <textarea name="desc" id="" cols="35" rows="5" placeholder="Description" style=" resize: none;" value="<%= movies.desc%>"></textarea>
+       <br><br>
+       <input type="text" name="release_date" placeholder="MM/DD/YYYY" value="<%= movies.release__date%>"/>
+       <br><br>
+       <input type="text" name="rating" placeholder="13+" value="<%= movies.rating%>"/>
+       <br><br>
+       <input type="text" name="genre" placeholder="Romantic/Action" value="<%= movies.genre%>"/>
+       <br><br>
+       <input type="text" name="running_time" placeholder="180" value="<%= movies.running_time%>"/>
+       <br><br>
+      <input type="file" name="imageFile" value="<%= movies.imageFile%>"/>
+      <br><br>
+      <input type="text" name="teaser_url" placeholder="Teaser URL" value="<%= movies.teaser_url%>"/>
+      <br><br>
       <input type="submit" value="Update" />
     </form>
     <a href="/">Back to List</a>

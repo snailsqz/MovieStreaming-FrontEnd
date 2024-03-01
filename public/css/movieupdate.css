@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap");
 :root {
   --headerbg: #4f4666;
   --bg: #2e2a38;
@@ -25,8 +25,32 @@ header {
   width: 100%;
   background-color: var(--headerbg);
   display: flex;
+}
+
+.headerbox1 {
+  width: 91%;
+  display: flex;
   align-items: center;
-  justify-content: space-around;
+}
+
+.headerbox1 img {
+  width: 100px;
+  padding-bottom: 10px;
+  height: 60px;
+  margin: 0px 10px 0px 20px;
+  object-fit: cover;
+}
+
+.headerbox1 a {
+  margin: 0px 0px 0px 20px;
+  font-weight: 700;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+.headerbox2 {
+  display: flex;
+  align-items: center;
+  width: 9%;
 }
 
 header a {
@@ -34,7 +58,7 @@ header a {
   font-size: 24px;
   font-weight: 400;
   color: var(--txt);
-  padding: 2px 7px 4px 7px;
+  padding: 4px 10px 6px 10px;
   transition: all 0.4s;
   border-radius: 10px;
 }
@@ -89,7 +113,6 @@ ul {
   list-style: none;
   background-color: var(--headerbg);
   position: relative;
-  transform: translateX(100px);
   z-index: 999;
 }
 

@@ -39,19 +39,9 @@ body {
   align-items: center;
 }
 
-.mainbox div:nth-of-type(2) {
-  background-color: var(--bg2);
-  border-radius: 0px 15px 15px 0px;
-  width: 30%;
-  height: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 .mainbox div:nth-of-type(1) {
-  border-radius: 15px 0px 0px 15px;
-  background-color: var(--headerbg);
+  background-color: var(--bg2);
+  border-radius: 15px;
   width: 30%;
   height: 70%;
   display: flex;
@@ -121,14 +111,11 @@ input[type="text"] {
   width: 100%;
 }
 
-.mainbox div:nth-of-type(1) h1 {
-  color: var(--txt);
-  font-weight: 400;
-  font-size: 40px;
+.checklogin {
+  color: #5d6dfd;
+  position: absolute;
 }
 
-.mainbox div:nth-of-type(1) p {
-  color: var(--txt);
-  font-size: 18px;
-  padding: 20px 30px 80px 30px;
+form {
+  position: relative;
 }

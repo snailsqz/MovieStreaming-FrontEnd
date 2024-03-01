@@ -6,32 +6,40 @@
   <title>Movie</title>
   <link rel="stylesheet" href="../css/movie.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
   <header> 
-    <a href="/">Home</a>
-    <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
-    <a href="/create">Add Movie</a>
-    <a href="/movieupdate">Update Movie</a>
-    <a href="/moviedelete">Delete Movie</a>
-    <% }%>
-    <% if (moviedata.roles == "User" ){ %>
-    <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
-    <% }%>
-    <% if (!moviedata.userName) { %>
-    <a href="/register">Sign Up</a>
-    <a href="/login">Sign In</a>
-    <% } %>
+    <div class="headerbox1">
+      <img src="../images/Logo_JS_Pro.png" alt="">
+      <a href="/">Home</a>
+      <% if(moviedata.roles != "Admin" ){ %>
+        <a href="/typemovie">Movies</a>
+        <a href="/typeseries">Series</a>
+      <% }%>
+      <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
+        <a href="/movies">Movies</a>
+        <a href="/users">Users</a>
+        <% }%>
+      <% if (moviedata.roles == "User"){ %>
+      <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
+      <% }%>
+    </div>
+    <div class="headerbox2"> 
+      <% if (!moviedata.userName) { %>
+      <a class="signup" href="/login">Sign In</a>
+      <% } %>
     <% if (moviedata.userName) { %>
-    <ul>
-      <li>
+      <ul>
+        <li>
         <img src="../images/<%=moviedata.profilePicture%>" alt="" class="profile">
-      <ul class="dropdown">
-        <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
-        <li><a href="/logout">Sign out</a></li>
+        <ul class="dropdown">
+          <li><a href="/user/<%=moviedata.user_id%>">Edit User</a></li>
+          <li><a href="/logout">Sign out</a></li>
+        </ul>
+        </li>
       </ul>
-      </li>
-    </ul>
+    </div>
     <% } %>
   </header>
   <div class="mainbox">
@@ -44,32 +52,114 @@
         <% } %>
       </div>
       <div>
-        
-       </div>
+        <% function getEmbedUrl(videoUrl) {
+          if (videoUrl.includes("youtube.com")) {
+            const videoId = videoUrl.split("v=")[1];
+            return `https://www.youtube.com/embed/${videoId}`;
+          }
+          else(videoUrl.includes("youtu.be.com"))
+          {
+            const videoId = videoUrl.split(".be/")[1];
+            return `https://www.youtube.com/embed/${videoId}`;
+          }
+          return videoUrl;
+        }%>
+        <% const embedUrl = getEmbedUrl(movie.teaser_url); %>
+        <iframe width="750" height="400"
+          src=<%=embedUrl%>
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+          </iframe>
+      </div>
     </div>
     <div class="box2">
-      <% if (favoriteStatus == "Unfavorite this movie!") { %>
-        <h2 class="fade-in-right "><i class="fa-solid fa-xmark"></i>⠀<%=favoriteStatus%></h2>
+      <% if (favoriteStatus2 == "Unfavorite this movie!") { %>
+        <h2 class="fade-in-right "><i class="fa-solid fa-xmark"></i>⠀<%=favoriteStatus2%></h2>
       <% } %>
-      <% if (favoriteStatus == "Add to your favorite!") { %>
-        <h2 class="fade-in-right "><i class="fa-regular fa-heart"></i>⠀<%=favoriteStatus%></h2>
+      <% if (favoriteStatus2 == "Add to your favorite!") { %>
+        <h2 class="fade-in-right "><i class="fa-regular fa-heart"></i>⠀<%=favoriteStatus2%></h2>
       <% } %>
       
-      <h1><%=movie.title%></h1>
+        <h1><%=movie.title%></h1>
+        <p style="text-indent: 30px ; text-align:justify; margin-bottom:30px;"><%=movie.desc%></p>
+        <hr style="margin-bottom:30px;">
         <p>Director: <%=movie.director%></p>
+        <p>Genre: <%=movie.genre%></p>
+        <p>Release Date: <%=movie.release_date%></p>
+        <p>Type: <%=movie.type%></p>
+        <p>Rating: <%=movie.rating%></p>
+        <p>Running Time: <%=movie.running_time%> Minutes</p>
         <form method="post" action="/favorite">
           <input hidden type="text" name="movie_id" value="<%=movie.movie_id %>">
           <input hidden type="text" name="user_id" value="<%=moviedata.user_id %>">
-          <% if (favoriteStatus == "") { %>
+          <% if (!favoriteStatus) { %>
             <button type="submit" class="btn">Favorite</button>
-          <% } %>
-          <% if (favoriteStatus == "Unfavorite this movie!") { %>
-            <button type="submit" class="btn">Favorite</button>
-          <% } else if(favoriteStatus == "Add to your favorite!"){%>
+          <% } else { %>
             <button type="submit" class="btn2">Unfavorite</button>
           <% } %>
         </form>
     </div>
   </div>
+  <div class="box3">
+    <hr>
+    <h1>Comment Section</h1>
+    <div class="boxreview">
+      <% if (moviedata.userName != "" ) { %>
+        <label for="">Score</label>  
+      <form method="post" action="/movie/<%=movie.movie_id%>" class="formment">
+        <input type="number" name="score" id="myinput" min="0" max="5"  placeholder="0" >
+        <div>
+          <textarea required name="comment" id="commenting" cols="30" rows="5" placeholder="Comment Here"  oninvalid="this.setCustomValidity('Please Comment First')"
+          oninput="this.setCustomValidity('')"></textarea>
+          <input type="submit" value="Comment">
+        </div>
+       </form>
+       <% } else { %>
+        <p style="color: #faf0e6; font-size: 30px;">Please login before comment</p>
+       <% } %>
+    </div>
+    <div class="boxread">
+      <% for(let i = 0; i < reviewData.length; i++){ %>
+        <div class="eachcom">
+        <% for(let j = 0; j < userData.length; j++){ %>
+          <% if(userData[j].user_id == reviewData[i].user_id) { %>
+            <div class="profcom">
+              <img src="/images/<%= userData[j].profilePicture %> " alt="">
+            </div>
+            <div class="comsect">
+              <% function formatDateTime(dateTime) {
+                const date = new Date(dateTime);
+                const hours = date.getHours().toString().padStart(2, '0');
+                const minutes = date.getMinutes().toString().padStart(2, '0');
+                const year = date.getFullYear();
+                const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                const day = date.getDate().toString().padStart(2, '0');
+                return `${hours}:${minutes} ${year}/${month}/${day}`;
+              }%>
+              <% datetime = formatDateTime(reviewData[i].createdAt); %>
+              <div class="usersect">
+                <p style="font-weight: 500;"><%= userData[j].name %></p>
+                <p style="margin-top: 1px; margin-left: 5px;"><%= datetime %><br></p>
+              </div>
+
+              <p class="usercomment">
+                <%= reviewData[i].score%> / 5
+                |
+                <%= reviewData[i].comment %>
+                <% if (mycommentID == userData[j].user_id) { %> <br>
+                <a href="/deletereview/<%=reviewData[i].review_id%>" onclick="return confirm('Do you confirm?')">Remove</a>
+                <% } %>
+              </p>
+            </div>
+          <% } %>
+        <% } %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+  <script>
+    document.getElementById('myinput').addEventListener('keydown', function(e) {
+        e.preventDefault();
+    });
+  </script>
 </body>
 </html>
