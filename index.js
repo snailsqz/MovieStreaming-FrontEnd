@@ -8,6 +8,7 @@ var bodyParser = require("body-parser");
 const session = require("express-session");
 
 const base_url = "https://moviestream-backend.onrender.com";
+//const base_url = "http://localhost:3000";
 
 app.set("views", path.join(__dirname, "/public/views"));
 app.set("view engine", "ejs");
