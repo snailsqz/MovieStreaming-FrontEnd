@@ -175,7 +175,7 @@ h2 {
 }
 
 .box1 {
-  width: 65%;
+  width: 60%;
   height: 100%;
 }
 
@@ -200,7 +200,7 @@ hr {
 }
 
 .box2 {
-  width: 35%;
+  width: 40%;
   height: 100%;
   position: relative;
   color: var(--txt);

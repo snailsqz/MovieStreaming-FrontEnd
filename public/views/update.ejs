@@ -38,9 +38,9 @@
     </header>
     <h1>Update Movie</h1>
     <form method="post" action="/update/<%=movies.movie_id%>" enctype="multipart/form-data">
-      <input type="text" name="title"  value="<%= movies.title%>" />
+      <input type="text" name="title"  placeholder="<%= movies.title%>" value="<%= movies.title%>"/>
       <br><br>
-      <input type="text"name="director" value="<%= movies.director%>"/>
+      <input type="text"name="director" placeholder="<%= movies.director%>" value="<%= movies.director%>"/>
       <br><br>
       <label for="">Type:</label>
         <select name="type" value="<%= movies.type%>">
@@ -48,19 +48,19 @@
           <option name="type" value="Series">Series</option>
         </select>
       <br><br>
-      <textarea name="desc" id="" cols="35" rows="5" placeholder="Description" style=" resize: none;" value="<%= movies.desc%>"></textarea>
+      <textarea name="desc" id="" cols="35" rows="5" placeholder="<%= movies.desc%>" value="<%= movies.desc%>" style=" resize: none;"></textarea>
        <br><br>
-       <input type="text" name="release_date" placeholder="MM/DD/YYYY" value="<%= movies.release__date%>"/>
+       <input type="text" name="release_date" placeholder="<%= movies.release_date%>" value="<%= movies.release_date%>"/>
        <br><br>
-       <input type="text" name="rating" placeholder="13+" value="<%= movies.rating%>"/>
+       <input type="text" name="rating" placeholder="<%= movies.rating%>" value="<%= movies.rating%>"/>
        <br><br>
-       <input type="text" name="genre" placeholder="Romantic/Action" value="<%= movies.genre%>"/>
+       <input type="text" name="genre" placeholder="<%= movies.genre%>" value="<%= movies.genre%>"/>
        <br><br>
-       <input type="text" name="running_time" placeholder="180" value="<%= movies.running_time%>"/>
+       <input type="text" name="running_time" placeholder="<%= movies.running_time%>" value="<%= movies.running_time%>"/>
        <br><br>
-      <input type="file" name="imageFile" value="<%= movies.imageFile%>"/>
+      <input type="file" name="imageFile" value="<%= movies.imageFile%>" value="<%= movies.imageFile%>"/>
       <br><br>
-      <input type="text" name="teaser_url" placeholder="Teaser URL" value="<%= movies.teaser_url%>"/>
+      <input type="text" name="teaser_url" placeholder="<%= movies.teaser_url%>" value="<%= movies.teaser_url%>"/>
       <br><br>
       <input type="submit" value="Update" />
     </form>

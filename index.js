@@ -7,8 +7,7 @@ const cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 const session = require("express-session");
 
-const base_url =
-  "http://node57177-pawee-noderest.proen.app.ruk-com.cloud:11397";
+const base_url = "http://localhost:3000";
 
 app.set("views", path.join(__dirname, "/public/views"));
 app.set("view engine", "ejs");
@@ -170,7 +169,7 @@ app.get("/update/:id", onlyAdmin, async (req, res) => {
   try {
     const response = await axios.get(base_url + "/movie/" + req.params.id);
     res.render("update", {
-      movies: response.data,
+      movies: response.data[1],
       moviedata: req.session.movieData,
     });
   } catch (err) {
@@ -191,12 +190,12 @@ app.post(
         director: req.body.director,
         type: req.body.type,
         teaser_url: req.body.teaser_url,
-        desc: req.body.desc,
         release_date: req.body.release_date,
         rating: req.body.rating,
         genre: req.body.genre,
         running_time: req.body.running_time,
       };
+      if (req.desc) data.desc = req.body.desc;
       if (req.file) data.imageFile = req.file.filename;
       console.log(data);
       await axios.put(base_url + "/movie/" + req.params.id, data);

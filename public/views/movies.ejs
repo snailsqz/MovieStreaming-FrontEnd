@@ -47,8 +47,8 @@
           <tr>
             <td><img src="../images/<%=movies[i].imageFile%>" alt="" class="profile"></td>
             <td style="text-align: center; width: 50px;"><%=movies[i].movie_id%></td>
-            <td style="max-width: 150px; text-align:center;"><%=movies[i].title %></td>
-            <td style="max-width: 150px; text-align:center;"><%=movies[i].director %></td>
+            <td style="width: 250px; text-align:center;"><%=movies[i].title %></td>
+            <td style="width: 250px; text-align:center;"><%=movies[i].director %></td>
             <td style="max-width: 150px; text-align:center;"><%=movies[i].type %></td>
             <td style="text-align: center; width: 80px;"><a href="/update/<%=movies[i].movie_id%>" style="color:#3ff78b">Edit</a></td>
             <td style="text-align: center; width: 80px;"> <a href="/delete/<%=movies[i].movie_id%>"onclick="return confirm('Do you confirm to delete this movie?')" style="color:#f73f3f">Delete</a></td>
