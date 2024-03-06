@@ -140,6 +140,21 @@ form {
   align-items: center;
 }
 
+form a {
+  margin-top: 20px;
+  color: firebrick;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 4px 10px 6px 10px;
+  transition: all 0.4s;
+  border-radius: 10px;
+}
+
+form a:hover {
+  color: rgb(146, 27, 27);
+}
+
 input[type="text"] {
   font-size: large;
   border-radius: 7px;

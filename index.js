@@ -456,6 +456,7 @@ app.get("/movies", onlyAdmin, async (req, res) => {
 
 app.get("/typemovie", async (req, res) => {
   try {
+    req.session.favoriteStatus2 = "";
     const response = await axios.get(base_url + "/typemovie");
     res.render("typemovie", {
       movies: response.data,
@@ -470,6 +471,7 @@ app.get("/typemovie", async (req, res) => {
 
 app.get("/typeseries", async (req, res) => {
   try {
+    req.session.favoriteStatus2 = "";
     const response = await axios.get(base_url + "/typeseries");
     res.render("typeseries", {
       movies: response.data,

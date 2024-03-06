@@ -14,15 +14,15 @@
         <img src="../images/Logo_JS_B_shade_white.png" alt="">
         <a href="/">Home</a>
         <% if(moviedata.roles != "Admin" ){ %>
-            <a href="/typemovie">Movies</a>
-            <a href="/typeseries">Series</a>
-          <% }%>
+          <a href="/typemovie">Movies</a>
+          <a href="/typeseries">Series</a>
+        <% }%>
         <% if (moviedata.userName != "" && moviedata.roles == "Admin") { %>
           <a href="/movies">Movies</a>
           <a href="/users">Users</a>
-          <% }%>
+        <% }%>
         <% if (moviedata.roles == "User"){ %>
-        <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
+          <a href="/favorite/<%=moviedata.user_id%>">Favorite</a>
         <% }%>
       </div>
       <div class="headerbox2"> 
@@ -42,12 +42,17 @@
       </div>
       <% } %>
     </header>
+    <% if (moviedata.userName) { %>
+      <h2 class="fade-in-right "><i class="fa-solid fa-hands-clapping"></i> Welcome, <%= moviedata.userName %> !</h2>
+    <% } else { %>
+      <h2 class="fade-in-right " style="width: 170px;"><i class="fa-solid fa-hands-clapping"></i> Welcome !</h2>
+    <% } %>
     <div class="mainbox">
       <div>
         <% if (movies.length > 0) { %>
         <a href="/movie/<%=movies[0].movie_id%>" class="moviedes">
           <p><%= movies[0].title %></p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, fuga!</p>
+          <p><%= movies[0].desc%></p>
         </a> 
         <a href="/movie/<%=movies[0].movie_id%>"><img src="/images/<%= movies[0].imageFile %>" class="bigimg"></a>
         <% } else {%>
@@ -62,13 +67,28 @@
         </div>
       <%}%>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     
-    <footer>
+    <footer style="margin: 300px 0 0 0;">
       <p>NetBoss &copy; 2024 KMUTNB Project</p>
-      <p>Pawee Indulakshana IT</p>
-      <p>Jiramet Sakulkittavorn IT</p>
-      <p>Nuttawat Amorntanont IT</p>
+      <table>
+        <tr>
+          <th>Developers</th>
+          <th>GitHub</th>
+        </tr>
+        <tr>
+          <td>Pawee Indulakshana</td>
+          <td><a href="https://github.com/snailsqz"><i class="fa-brands fa-github" style="font-size: 20px; color:aliceblue;"></i></a></td>
+        </tr>
+        <tr>
+          <td>Jiramet Sakulkittavorn</td>
+          <td><a href="https://github.com/snailsqz"><i class="fa-brands fa-github" style="font-size: 20px; color:aliceblue;"></i></a></td>
+        </tr>
+        <tr>
+          <td>Nuttawat Amorntanont</td>
+          <td><a href="https://github.com/Nuttawat28"><i class="fa-brands fa-github" style="font-size: 20px; color:aliceblue;"></i></a></td>
+        </tr>
+
+      </table>
       <p>For Educational Purpose Only</p>
       
     </footer>

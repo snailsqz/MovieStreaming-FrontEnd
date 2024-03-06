@@ -140,6 +140,7 @@ ul li a {
   text-align: center;
   font-size: large;
   font-family: "Fredoka", sans-serif;
+  font-weight: 400;
 }
 
 ul li ul.dropdown li {

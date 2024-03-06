@@ -331,6 +331,10 @@ textarea:focus {
   outline: none;
 }
 
+textarea {
+  font-family: "Kanit", sans-serif;
+}
+
 input[type="submit"] {
   margin-top: 20px;
   padding: 10px;
